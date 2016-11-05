@@ -32,7 +32,7 @@
                 <div id="info">
                     HTML5 Audio API showcase | An Audio Viusalizer
                 </div>
-                <label for="uploadedFile">Drag&drop or select a file to play:</label>
+                <label for="uploadedFile">Drag&drop or you can select a file to play:</label>
                 <input type="file" id="uploadedFile"></input>
             </div>
             <div id="visualizer_wrapper">
@@ -152,7 +152,7 @@
                             that._updateInfo('Decode succussfully,start the visualizer', true);
                             that._visualize(audioContext, buffer);
                         }, function(e) {
-                            that._updateInfo('!Fail to decode the file', false);
+                            that._updateInfo('!sorry we could not decode the file', false);
                             console.log(e);
                         });
                     };
@@ -192,8 +192,8 @@
                     audioBufferSouceNode.onended = function() {
                         that._audioEnd(that);
                     };
-                    this._updateInfo('Playing ' + this.fileName, false);
-                    this.info = 'Playing ' + this.fileName;
+                    this._updateInfo('♫Playing♫ ' + this.fileName, false);
+                    this.info = '♫Playing♫ ' + this.fileName;
                     document.getElementById('fileWrapper').style.opacity = 0.2;
                     this._drawSpectrum(analyser);
                 },
@@ -210,9 +210,9 @@
                         capYPositionArray = []; ////store the vertical position of hte caps for the preivous frame
                     ctx = canvas.getContext('2d'),
                     gradient = ctx.createLinearGradient(0, 0, 0, 300);
-                    gradient.addColorStop(1, '#0f0');
-                    gradient.addColorStop(0.5, '#ff0');
-                    gradient.addColorStop(0, '#f00');
+                    gradient.addColorStop(1, '#F53240');
+                    gradient.addColorStop(0.5, '#f2525e');
+                    gradient.addColorStop(0, '#f2525e');
                     var drawMeter = function() {
                         var array = new Uint8Array(analyser.frequencyBinCount);
                         analyser.getByteFrequencyData(array);
